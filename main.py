@@ -16,7 +16,8 @@ try:
     SIGNING_SECRET = os.environ["SIGNING_SECRET"]
     BOT_TOKEN = os.environ["BOT_TOKEN"]
 except KeyError:
-    pass
+    print("Environment variable SIGNING_SECRET and/or BOT_TOKEN are required and not set. Exiting")
+    sys.exit(1)
 
 async def respond_to_slack_response_url(response_url, payload: Dict[Text, Any]):
     # headers = {"Content-Type": "application/json"}
