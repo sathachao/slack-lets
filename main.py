@@ -26,38 +26,6 @@ async def respond_to_slack_response_url(response_url, payload: Dict[Text, Any]):
 
 app = Starlette(debug=True)
 
-@app.route("/", methods=["GET", "POST"])
-async def hello(request):
-
-    form = await request.form()
-    user_id = form["user_id"]
-    expd_name = form["text"]
-
-    message = {
-        "blocks": [
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": f"<@{user_id}> has created a new expedition *{expd_name}*. Would you like to join?",
-                },
-                "accessory": {
-                    "type": "button",
-                    "text": {
-                        "type": "plain_text",
-                        "text": "Join! :disappointed:",
-                        "emoji": True,
-                        "style": "",
-                    },
-                    "value": "click_me_123"
-                },
-            },
-        ]
-    }
-    tasks = BackgroundTasks()
-    tasks.add_task(respond_to_slack_response_url, message)
-    return JSONResponse(status_code=200, background=tasks)
-
 @app.route("/new_expedition", methods=["POST"])
 async def create_event(request):
     if not letsslack.validate_request(request, SIGNING_SECRET):
