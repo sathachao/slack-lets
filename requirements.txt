@@ -1,15 +1,15 @@
--i https://pypi.org/simple
-certifi==2019.3.9
+-i https://pypi.org/simple/
+certifi==2020.6.20
 chardet==3.0.4
-click==7.0
-h11==0.8.1
-httptools==0.0.13 ; sys_platform != 'win32' and sys_platform != 'cygwin' and platform_python_implementation != 'pypy'
+click==7.1.2
+h11==0.9.0
+httptools==0.1.1 ; sys_platform != 'win32' and sys_platform != 'cygwin' and platform_python_implementation != 'PyPy'
 idna==2.8
 python-multipart==0.0.5
 requests==2.22.0
-six==1.12.0
+six==1.15.0
 starlette==0.12.0
-urllib3==1.25.3
-uvicorn==0.7.2
-uvloop==0.12.2 ; sys_platform != 'win32' and sys_platform != 'cygwin' and platform_python_implementation != 'pypy'
-websockets==7.0
+urllib3==1.25.10
+uvicorn==0.11.7
+uvloop==0.14.0 ; sys_platform != 'win32' and sys_platform != 'cygwin' and platform_python_implementation != 'PyPy'
+websockets==8.1
